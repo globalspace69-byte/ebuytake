@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>eBuytake – সব কিছু এক জায়গায়</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Sora:wght@700;800&display=swap">
+<style>
+:root{--bg:#F3F5FA;--surface:#fff;--ink:#101B3B;--muted:#5B6585;--line:#DFE4F0;--brand:#2F5BFF;--brand-ink:#fff;--hot:#FF4D2E;--sun:#FFB400;--sun-ink:#101B3B;--ok:#1B9E5A;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1020;--surface:#151C33;--ink:#EEF1FB;--muted:#9AA5C8;--line:#252E4D;--brand:#6F8CFF;--brand-ink:#0B1020}}
+:root[data-theme="dark"]{--bg:#0B1020;--surface:#151C33;--ink:#EEF1FB;--muted:#9AA5C8;--line:#252E4D;--brand:#6F8CFF;--brand-ink:#0B1020}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "Hind Siliguri",system-ui,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--brand);color:var(--brand-ink);padding:10px 16px}
+.bar{max-width:1180px;margin:auto;display:flex;gap:8px;align-items:center}
+.logo{font:800 22px Sora,sans-serif;letter-spacing:-.5px;white-space:nowrap}.logo b{color:var(--sun)}
+.search{flex:1;display:flex;background:var(--surface);border-radius:10px;min-width:0}
+.search input{flex:1;border:0;padding:9px 12px;background:transparent;min-width:0;border-radius:10px}
+.hb{background:rgba(255,255,255,.18);color:inherit;border:0;border-radius:10px;padding:8px 10px;white-space:nowrap;font-weight:600}
+.hb.c{background:var(--sun);color:var(--sun-ink)}
+main{max-width:1180px;margin:auto;padding:16px}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.sale{background:var(--ink);color:var(--bg);border-radius:18px;padding:26px;position:relative;overflow:hidden}
+:root[data-theme="dark"] .sale,:root:not([data-theme="light"]) .sale{background:var(--brand);color:#fff}
+.sale h1{font:800 clamp(28px,5vw,46px)/1.15 "Hind Siliguri",Sora,sans-serif;margin:0 0 8px}
+.sale p{margin:0 0 16px;opacity:.85;max-width:36ch}
+.timer{display:flex;gap:8px;margin-bottom:16px}
+.timer span{background:var(--hot);color:#fff;border-radius:8px;padding:6px 10px;font:700 22px Sora,sans-serif;min-width:54px;text-align:center}
+.timer small{display:block;font:500 10px "Hind Siliguri"}
+.go{background:var(--sun);color:var(--sun-ink);border:0;border-radius:10px;padding:10px 20px;font-weight:700}
+.big{position:absolute;right:-10px;bottom:-30px;font-size:140px;transform:rotate(-12deg)}
+.side{display:grid;gap:12px}
+.side div{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;align-items:center;gap:12px}
+.side em{font-size:36px;font-style:normal}.side b{display:block}.side span{color:var(--muted);font-size:14px}
+h2{font:700 21px "Hind Siliguri",Sora,sans-serif;margin:24px 0 10px}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px}
+.cat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 4px;text-align:center}
+.cat[aria-pressed="true"]{border-color:var(--brand);box-shadow:0 0 0 2px var(--brand)}
+.cat i{display:block;font-style:normal;font-size:28px}.cat span{font-size:14px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+select,input,textarea{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:8px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.pic{aspect-ratio:1;display:grid;place-items:center;font-size:60px;position:relative;border:0;width:100%}
+.off{position:absolute;top:8px;left:8px;background:var(--hot);color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px}
+.heart{position:absolute;top:6px;right:6px;background:var(--surface);border:0;border-radius:50%;width:32px;height:32px;font-size:16px}
+.info{padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px;flex:1}
+.info h3{font-size:15px;font-weight:500;margin:0;line-height:1.3}
+.price{font:700 17px Sora,sans-serif;color:var(--brand)}
+.old{color:var(--muted);text-decoration:line-through;font-size:13px;margin-left:6px}
+.rate,.sm{color:var(--muted);font-size:13px}
+.btn{background:var(--brand);color:var(--brand-ink);border:0;border-radius:9px;padding:9px 14px;font-weight:600}
+.btn.hot{background:var(--hot);color:#fff}.btn.ghost{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.info .btn{margin-top:auto}
+.empty{padding:36px;text-align:center;color:var(--muted);grid-column:1/-1}
+aside{position:fixed;inset:0 0 0 auto;width:min(390px,100%);background:var(--surface);z-index:10;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.25);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+aside.open{transform:none}
+.ah{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--brand);color:var(--brand-ink);font-weight:700;font-size:18px}
+.ah button,.x{background:none;border:0;font-size:22px}
+#items{flex:1;overflow:auto;padding:8px 16px}
+.row{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.row .t{font-size:28px}.row .n{flex:1;font-size:15px}.row .n b{display:block;color:var(--brand)}
+.qty{display:flex;align-items:center;gap:6px}.qty button{width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:var(--bg)}
+.foot{padding:14px 16px;border-top:1px solid var(--line);display:grid;gap:8px}
+.tl{display:flex;justify-content:space-between}.tl.b{font:700 18px "Hind Siliguri"}
+.cp{display:flex;gap:6px}.cp input{flex:1;min-width:0}
+.modal{position:fixed;inset:0;background:rgba(5,10,30,.6);z-index:30;display:grid;place-items:center;padding:12px}
+.box{background:var(--surface);border-radius:16px;width:min(580px,100%);max-height:92vh;overflow:auto;padding:18px;position:relative}
+.box h3{margin:0 0 10px;font-size:20px}
+.x{position:absolute;top:8px;right:12px}
+.f{display:grid;gap:8px;margin:8px 0}.f label{font-size:14px;color:var(--muted);display:grid;gap:3px}
+.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}.tabs .btn{padding:6px 12px}
+.pd{display:grid;grid-template-columns:1fr 1.3fr;gap:16px}.pd .pic{border-radius:12px;font-size:90px}
+.steps{display:flex;gap:4px;margin:6px 0}.steps span{flex:1;text-align:center;font-size:12px;padding:4px 2px;border-radius:6px;background:var(--bg);color:var(--muted)}
+.steps span.on{background:var(--ok);color:#fff}
+.ord{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:10px}
+.rv{border-top:1px solid var(--line);padding:6px 0;font-size:14px}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:6px}.pay label{flex-direction:row;display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:9px;padding:8px;color:var(--ink)}
+.stat{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px}.stat div{background:var(--bg);border-radius:10px;padding:8px 12px}.stat b{display:block;font-size:20px}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,120px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:10px;transition:transform .25s;z-index:40;max-width:92vw;text-align:center}
+#toast.show{transform:translate(-50%,0)}
+footer{text-align:center;color:var(--muted);padding:26px 16px;font-size:14px}footer a{color:var(--brand);margin:0 8px;background:none;border:0;text-decoration:underline}
+@media(max-width:760px){.hero,.pd{grid-template-columns:1fr}.logo{font-size:18px}.hb span{display:none}.big{font-size:90px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="bar">
+<div class="logo">e<b>Buy</b>take</div>
+<form class="search" onsubmit="return false"><input id="q" type="search" aria-label="Search"></form>
+<button class="hb" data-a="lang" id="lg">EN</button>
+<button class="hb" data-a="wish">❤ <span id="wc">0</span></button>
+<button class="hb" data-a="acct">👤 <span id="an"></span></button>
+<button class="hb c" data-a="cart" aria-label="Cart">🛒 <b id="cnt">0</b></button>
+</div></header>
+<main>
+<section class="hero">
+<div class="sale"><h1 data-t="sale"></h1><p data-t="saleP"></p>
+<div class="timer"><span id="h">00<small data-t="hr"></small></span><span id="m">00<small data-t="mn"></small></span><span id="s">00<small data-t="sc"></small></span></div>
+<button class="go" data-a="shop" data-t="shopNow"></button><div class="big" aria-hidden="true">🛍️</div></div>
+<div class="side"><div><em>🚚</em><p style="margin:0"><b data-t="free"></b><span data-t="freeS"></span></p></div><div><em>💵</em><p style="margin:0"><b data-t="cod"></b><span data-t="pay4"></span></p></div></div>
+</section>
+<h2 data-t="cats"></h2><div class="cats" id="cats"></div>
+<h2 id="shop"><span id="title"></span></h2>
+<div class="filters">
+<select id="so" aria-label="Sort"></select><select id="mx" aria-label="Max price"></select><select id="mr" aria-label="Min rating"></select>
+</div>
+<div class="grid" id="grid"></div>
+</main>
+<footer><div><button data-a="pol" data-i="privacy" data-t="privacy"></button><button data-a="pol" data-i="returns" data-t="returns"></button><button data-a="pol" data-i="terms" data-t="terms"></button><button data-a="pol" data-i="contact" data-t="contact"></button></div><p data-t="demo"></p></footer>
+<aside id="cart"><div class="ah"><span data-t="cart"></span><button data-a="cartx" aria-label="Close">✕</button></div><div id="items"></div>
+<div class="foot"><div class="cp"><input id="cpn" data-ph="coupon"><button class="btn ghost" data-a="coupon" data-t="apply"></button></div>
+<div class="tl"><span data-t="disc"></span><span id="dc">৳0</span></div><div class="tl b"><span data-t="total"></span><span id="total">৳0</span></div>
+<button class="btn hot" data-a="chk" data-t="checkout"></button></div></aside>
+<div id="mod"></div><div id="toast" role="status"></div>
+<script>
+const D={
+search:["Search products, brands and more","প্রোডাক্ট ও ব্র্যান্ড খুঁজুন"],sale:["Mega Sale ends tonight","মেগা সেল আজ রাতেই শেষ"],saleP:["Up to 60% off on phones, fashion, home and more.","ফোন, ফ্যাশন, হোম ও আরও অনেক কিছুতে ৬০% পর্যন্ত ছাড়।"],
+hr:["hours","ঘণ্টা"],mn:["min","মিনিট"],sc:["sec","সেকেন্ড"],shopNow:["Shop now","কেনাকাটা করুন"],free:["Free delivery","ফ্রি ডেলিভারি"],freeS:["On orders over ৳999","৳৯৯৯-এর উপরে অর্ডারে"],cod:["Cash on delivery","ক্যাশ অন ডেলিভারি"],pay4:["bKash, Nagad, card too","bKash, Nagad, কার্ডও চলবে"],
+cats:["Categories","ক্যাটাগরি"],all:["All products","সব প্রোডাক্ট"],cart:["Your cart","আপনার কার্ট"],coupon:["Coupon (EBUY10, WELCOME50)","কুপন (EBUY10, WELCOME50)"],apply:["Apply","প্রয়োগ"],disc:["Discount","ছাড়"],total:["Total","মোট"],checkout:["Checkout","চেকআউট"],
+add:["Add to cart","কার্টে যোগ করুন"],buy:["Buy now","এখনই কিনুন"],added:["Added to cart","কার্টে যোগ হয়েছে"],emptyC:["Your cart is empty. Add something you like.","কার্ট খালি। পছন্দের কিছু যোগ করুন।"],none:["No products match. Try another word or category.","কিছু পাওয়া যায়নি। অন্য শব্দ বা ক্যাটাগরি চেষ্টা করুন।"],
+sort:["Sort: Popular","সাজান: জনপ্রিয়"],lo:["Price: low to high","দাম: কম থেকে বেশি"],hi:["Price: high to low","দাম: বেশি থেকে কম"],top:["Top rated","সেরা রেটিং"],anyP:["Any price","যেকোনো দাম"],anyR:["Any rating","যেকোনো রেটিং"],r4:["4★ & up","৪★ ও তার বেশি"],
+login:["Login","লগইন"],reg:["Register","রেজিস্ট্রেশন"],name:["Full name","পুরো নাম"],phone:["Phone","ফোন নম্বর"],pass:["Password","পাসওয়ার্ড"],logout:["Logout","লগআউট"],needLogin:["Please login first","আগে লগইন করুন"],bad:["Wrong phone or password","ফোন বা পাসওয়ার্ড ভুল"],fill:["Please fill all fields","সব ঘর পূরণ করুন"],exists:["Phone already registered","এই নম্বর আগেই নিবন্ধিত"],hint:["Demo admin: admin / admin123","ডেমো অ্যাডমিন: admin / admin123"],
+orders:["My orders","আমার অর্ডার"],sell:["Sell","বিক্রি করুন"],admin:["Admin","অ্যাডমিন"],noOrd:["No orders yet.","এখনো কোনো অর্ডার নেই।"],
+addr:["Full address","পূর্ণ ঠিকানা"],div:["Division","বিভাগ"],payM:["Payment method","পেমেন্ট পদ্ধতি"],trx:["Send money to 01700-000000, then enter TrxID / last 4 digits","01700-000000 নম্বরে টাকা পাঠিয়ে TrxID / শেষ ৪ সংখ্যা দিন"],place:["Place order","অর্ডার করুন"],sub:["Subtotal","সাবটোটাল"],ship:["Delivery","ডেলিভারি চার্জ"],card:["Card","কার্ড"],
+ok:["Order placed","অর্ডার হয়েছে"],sms:["SMS sent to","SMS পাঠানো হয়েছে"],
+opt:["Option","অপশন"],rv:["Reviews","রিভিউ"],noRv:["No reviews yet.","এখনো কোনো রিভিউ নেই।"],yr:["Your review","আপনার রিভিউ"],post:["Post review","রিভিউ দিন"],by:["Sold by","বিক্রেতা"],
+shopN:["Shop name","দোকানের নাম"],pn:["Product name","প্রোডাক্টের নাম"],pp:["Price ৳","দাম ৳"],po:["Old price ৳","আগের দাম ৳"],pe:["Emoji picture","ইমোজি ছবি"],pd:["Description","বিবরণ"],pc:["Category","ক্যাটাগরি"],save:["Save product","প্রোডাক্ট যোগ করুন"],my:["My products","আমার প্রোডাক্ট"],sales:["Sales","বিক্রি"],comm:["Commission 8%","কমিশন ৮%"],net:["You earn","আপনার আয়"],
+rev:["Revenue","মোট আয়"],uc:["Users","ইউজার"],pc2:["Products","প্রোডাক্ট"],oc:["Orders","অর্ডার"],next:["Next status","পরের ধাপ"],del:["Delete","মুছুন"],wl:["Wishlist","উইশলিস্ট"],noW:["Wishlist is empty.","উইশলিস্ট খালি।"],
+privacy:["Privacy","প্রাইভেসি"],returns:["Returns","রিটার্ন"],terms:["Terms","শর্তাবলী"],contact:["Contact","যোগাযোগ"],demo:["© 2026 eBuytake. Demo storefront: data is saved only in this browser.","© ২০২৬ eBuytake। ডেমো স্টোর: তথ্য শুধু এই ব্রাউজারে সেভ থাকে।"]};
+const PO={privacy:["We collect only your name, phone and address to deliver orders. We never sell your data.","অর্ডার পৌঁছে দিতে শুধু আপনার নাম, ফোন ও ঠিকানা নিই। তথ্য কখনো বিক্রি করি না।"],returns:["Return within 7 days if the item is damaged or wrong. Refunds go to your original payment method.","পণ্য নষ্ট বা ভুল হলে ৭ দিনের মধ্যে ফেরত দেওয়া যাবে। রিফান্ড আগের পেমেন্ট মাধ্যমেই যাবে।"],terms:["By ordering you agree to our prices, delivery times and return policy. Sellers are responsible for their listings.","অর্ডার করলে আপনি আমাদের দাম, ডেলিভারি সময় ও রিটার্ন নীতি মেনে নিচ্ছেন। বিক্রেতারা নিজ নিজ লিস্টিংয়ের জন্য দায়ী।"],contact:["Email: support@ebuytake.com · Phone: 01700-000000 · Daily 9am–9pm","ইমেইল: support@ebuytake.com · ফোন: 01700-000000 · প্রতিদিন সকাল ৯টা–রাত ৯টা"]};
+const CATS=[["all","🏬"],["Electronics","📱","ইলেকট্রনিক্স"],["Fashion","👕","ফ্যাশন"],["Home","🛋️","হোম"],["Beauty","💄","বিউটি"],["Grocery","🛒","মুদি"],["Sports","⚽","স্পোর্টস"],["Books","📚","বই"],["Toys","🧸","খেলনা"]];
+const CD={Electronics:["Original product, 1-year warranty.","আসল পণ্য, ১ বছরের ওয়ারেন্টি।"],Fashion:["Soft, durable fabric. Check size before ordering.","নরম ও টেকসই কাপড়। অর্ডারের আগে সাইজ দেখে নিন।"],Home:["Quality home essential for daily use.","প্রতিদিনের ব্যবহারের মানসম্মত হোম পণ্য।"],Beauty:["Skin-safe, dermatologically tested.","ত্বকের জন্য নিরাপদ, ডার্মাটোলজিক্যালি টেস্টেড।"],Grocery:["Fresh stock, sealed pack.","তাজা স্টক, সিল করা প্যাক।"],Sports:["Strong build for regular training.","নিয়মিত অনুশীলনের জন্য মজবুত।"],Books:["Popular title, clean print.","জনপ্রিয় বই, পরিষ্কার ছাপা।"],Toys:["Safe materials, great for kids.","নিরাপদ উপাদান, শিশুদের জন্য দারুণ।"]};
+const OPT={Fashion:["S","M","L","XL"],Electronics:["Black","Blue","Silver"]};
+const DIV=["Dhaka","Chattogram","Rajshahi","Khulna","Barishal","Sylhet","Rangpur","Mymensingh"];
+const ST=[["Placed","অর্ডার হয়েছে"],["Packed","প্যাক হয়েছে"],["Shipped","পথে আছে"],["Delivered","পৌঁছেছে"]];
+const P=[
+[1,"Smartphone 8GB/128GB|স্মার্টফোন ৮GB/১২৮GB","Electronics","📱",21990,26990,4.5,"#DCE6FF"],[2,"Wireless Earbuds|ওয়্যারলেস ইয়ারবাড","Electronics","🎧",1290,2490,4.2,"#E4DBFF"],[3,"Smart Watch|স্মার্ট ওয়াচ","Electronics","⌚",2450,3990,4.3,"#D5F0FF"],[4,"Laptop 15.6″ i5|ল্যাপটপ ১৫.৬″ i5","Electronics","💻",58900,64900,4.6,"#DCE6FF"],
+[5,"Cotton Panjabi|সুতির পাঞ্জাবি","Fashion","👘",1450,1990,4.4,"#FFE3D6"],[6,"Women’s Saree|মহিলাদের শাড়ি","Fashion","🥻",2890,3890,4.7,"#FFD9E8"],[7,"Sneakers|স্নিকার্স","Fashion","👟",1990,2990,4.3,"#FFF0C9"],[8,"Leather Handbag|লেদার হ্যান্ডব্যাগ","Fashion","👜",1790,2590,4.1,"#FFE3D6"],
+[9,"Rice Cooker 1.8L|রাইস কুকার ১.৮ লিটার","Home","🍚",2290,2890,4.5,"#D8F5E3"],[10,"Table Lamp|টেবিল ল্যাম্প","Home","💡",690,990,4.0,"#FFF0C9"],[11,"Face Serum 30ml|ফেস সিরাম ৩০মি.লি.","Beauty","🧴",890,1290,4.4,"#FFD9E8"],[12,"Lipstick Set|লিপস্টিক সেট","Beauty","💄",750,1150,4.2,"#FFD9E8"],
+[13,"Mustard Oil 5L|সরিষার তেল ৫ লিটার","Grocery","🫒",1150,1290,4.6,"#E9F5C9"],[14,"Premium Tea 1kg|প্রিমিয়াম চা ১কেজি","Grocery","🍵",620,720,4.5,"#D8F5E3"],[15,"Cricket Bat|ক্রিকেট ব্যাট","Sports","🏏",2190,2990,4.4,"#D8F5E3"],[16,"Yoga Mat|যোগ ম্যাট","Sports","🧘",790,1190,4.3,"#E4DBFF"],
+[17,"Bestseller Novel|বেস্টসেলার উপন্যাস","Books","📖",320,450,4.7,"#FFF0C9"],[18,"Kids Story Pack|শিশুদের গল্পের বই","Books","📚",540,700,4.5,"#DCE6FF"],[19,"Building Blocks 200pc|ব্লক সেট ২০০পিস","Toys","🧱",890,1390,4.6,"#FFE3D6"],[20,"Remote Control Car|রিমোট কন্ট্রোল গাড়ি","Toys","🚗",1190,1790,4.2,"#D5F0FF"]
+].map(a=>({id:String(a[0]),name:a[1],cat:a[2],icon:a[3],price:a[4],old:a[5],rate:a[6],bg:a[7],seller:"eBuytake Mall"}));
+let S={lang:"bn",users:[{name:"Admin",phone:"admin",pass:"admin123",role:"admin"}],me:null,prods:[],orders:[],rev:{},wish:[],cart:{},coupon:""};
+try{Object.assign(S,JSON.parse(localStorage.getItem("ebt2")||"{}"))}catch(e){}
+const F={cat:"all",q:"",sort:"rel",max:0,minr:0};
+const $=id=>document.getElementById(id),bn=()=>S.lang==="bn",t=k=>D[k][bn()?1:0],tk=n=>"৳"+Number(n).toLocaleString("en-IN");
+const save=()=>{try{localStorage.setItem("ebt2",JSON.stringify(S))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const all=()=>[...P,...S.prods],find=i=>all().find(p=>p.id===String(i));
+const nm=p=>{const a=p.name.split("|");return bn()&&a[1]?a[1]:a[0]};
+const rt=p=>{const r=S.rev[p.id]||[];return(p.rate*3+r.reduce((a,x)=>a+x.r,0))/(3+r.length)};
+const cn=c=>c[0]==="all"?t("all"):bn()?c[2]:c[0];
+function toast(m){const e=$("toast");e.textContent=m;e.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("show"),2200)}
+function calc(div){let sub=0;for(const k in S.cart){const p=find(k.split("|")[0]);if(p)sub+=p.price*S.cart[k]}
+const disc=!sub?0:S.coupon==="EBUY10"?Math.round(sub*.1):S.coupon==="WELCOME50"?Math.min(50,sub):0;
+const ship=!div||!sub||sub-disc>=999?0:div==="Dhaka"?60:120;return{sub,disc,ship,total:sub-disc+ship}}
+function lang(){document.documentElement.lang=S.lang;document.querySelectorAll("[data-t]").forEach(e=>{const s=t(e.dataset.t);if(e.firstChild&&e.firstChild.nodeType===3&&e.children.length)e.firstChild.nodeValue=s;else if(!e.children.length)e.textContent=s;else e.insertBefore(document.createTextNode(s),e.firstChild)});
+$("q").placeholder=t("search");$("cpn").placeholder=t("coupon");$("lg").textContent=bn()?"EN":"বাংলা";$("an").textContent=S.me?esc(S.me.name).split(" ")[0]:t("login");
+$("so").innerHTML=[["rel","sort"],["lo","lo"],["hi","hi"],["top","top"]].map(o=>`<option value="${o[0]}">${t(o[1])}</option>`).join("");
+$("mx").innerHTML=[[0,t("anyP")],[1000,"≤ ৳1,000"],[5000,"≤ ৳5,000"],[20000,"≤ ৳20,000"]].map(o=>`<option value="${o[0]}">${o[1]}</option>`).join("");
+$("mr").innerHTML=`<option value="0">${t("anyR")}</option><option value="4">${t("r4")}</option>`;
+$("so").value=F.sort;$("mx").value=F.max;$("mr").value=F.minr;cats();grid();cartR();$("wc").textContent=S.wish.length}
+function cats(){$("cats").innerHTML=CATS.map(c=>`<button class="cat" data-a="cat" data-i="${c[0]}" aria-pressed="${F.cat===c[0]}"><i>${c[1]}</i><span>${cn(c)}</span></button>`).join("")}
+function grid(){let l=all().filter(p=>(F.cat==="all"||p.cat===F.cat)&&nm(p).toLowerCase().includes(F.q)&&(!F.max||p.price<=F.max)&&rt(p)>=F.minr);
+if(F.sort==="lo")l.sort((a,b)=>a.price-b.price);if(F.sort==="hi")l.sort((a,b)=>b.price-a.price);if(F.sort==="top")l.sort((a,b)=>rt(b)-rt(a));
+$("title").textContent=cn(CATS.find(c=>c[0]===F.cat));
+$("grid").innerHTML=l.length?l.map(p=>`<div class="card"><div style="position:relative"><button class="pic" style="background:${p.bg};border:0" data-a="det" data-i="${p.id}" aria-label="${esc(nm(p))}">${esc(p.icon)}</button>${p.old>p.price?`<span class="off">-${Math.round((1-p.price/p.old)*100)}%</span>`:""}<button class="heart" data-a="w" data-i="${p.id}" aria-label="Wishlist">${S.wish.includes(p.id)?"❤️":"🤍"}</button></div><div class="info"><h3>${esc(nm(p))}</h3><div><span class="price">${tk(p.price)}</span>${p.old>p.price?`<span class="old">${tk(p.old)}</span>`:""}</div><div class="rate">★ ${rt(p).toFixed(1)} · ${esc(p.seller)}</div><button class="btn" data-a="add" data-i="${p.id}">${t("add")}</button></div></div>`).join(""):`<div class="empty">${t("none")}</div>`}
+function cartR(){const ks=Object.keys(S.cart).filter(k=>S.cart[k]>0&&find(k.split("|")[0]));let n=0;
+$("items").innerHTML=ks.length?ks.map(k=>{const[i,o]=k.split("|"),p=find(i);n+=S.cart[k];return`<div class="row"><div class="t">${esc(p.icon)}</div><div class="n">${esc(nm(p))}${o?` <span class="sm">(${esc(o)})</span>`:""}<b>${tk(p.price)}</b></div><div class="qty"><button data-a="q" data-i="${esc(k)}" data-d="-1" aria-label="−">−</button><span>${S.cart[k]}</span><button data-a="q" data-i="${esc(k)}" data-d="1" aria-label="+">+</button></div></div>`}).join(""):`<div class="empty">${t("emptyC")}</div>`;
+const c=calc();$("dc").textContent="−"+tk(c.disc);$("total").textContent=tk(c.total);$("cnt").textContent=n;save()}
+function M(h){$("mod").innerHTML=`<div class="modal" data-a="mx"><div class="box" role="dialog" aria-modal="true"><button class="x" data-a="mx" aria-label="Close">✕</button>${h}</div></div>`}
+const fld=(id,l,type="text",v="")=>`<label>${l}<input id="${id}" type="${type}" value="${esc(v)}"></label>`;
+const stp=s=>`<div class="steps">${ST.map((x,i)=>`<span class="${i<=s?"on":""}">${x[bn()?1:0]}</span>`).join("")}</div>`;
+function det(id){const p=find(id),o=OPT[p.cat],r=S.rev[p.id]||[];
+M(`<div class="pd"><div class="pic" style="background:${p.bg}">${esc(p.icon)}</div><div><h3>${esc(nm(p))}</h3><div><span class="price">${tk(p.price)}</span>${p.old>p.price?`<span class="old">${tk(p.old)}</span>`:""}</div><div class="rate">★ ${rt(p).toFixed(1)} · ${t("by")}: ${esc(p.seller)}</div><p>${esc(p.desc||CD[p.cat][bn()?1:0])}</p>${o?`<label class="sm">${t("opt")}<select id="op">${o.map(x=>`<option>${x}</option>`).join("")}</select></label>`:""}<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button class="btn" data-a="add" data-i="${p.id}" data-d="1">${t("add")}</button><button class="btn hot" data-a="buy" data-i="${p.id}">${t("buy")}</button></div></div></div>
+<h3 style="margin-top:16px;font-size:17px">${t("rv")}</h3>${r.length?r.map(x=>`<div class="rv">${"★".repeat(x.r)} <b>${esc(x.u)}</b><br>${esc(x.c)}</div>`).join(""):`<div class="sm">${t("noRv")}</div>`}
+<div class="f"><label>${t("yr")}<select id="rr">${[5,4,3,2,1].map(n=>`<option value="${n}">${"★".repeat(n)}</option>`).join("")}</select></label><textarea id="rc" rows="2" aria-label="${t("yr")}"></textarea><button class="btn" data-a="rpost" data-i="${p.id}">${t("post")}</button></div>`)}
+function auth(tab="login"){const lg=tab==="login";M(`<h3>${t(tab==="login"?"login":"reg")}</h3><div class="tabs"><button class="btn ${lg?"":"ghost"}" data-a="auth" data-i="login">${t("login")}</button><button class="btn ${lg?"ghost":""}" data-a="auth" data-i="reg">${t("reg")}</button></div><div class="f">${lg?"":fld("an2",t("name"))}${fld("ph",t("phone"),"tel")}${fld("pw",t("pass"),"password")}<button class="btn" data-a="${lg?"dologin":"doreg"}">${t(lg?"login":"reg")}</button><span class="sm">${t("hint")}</span></div>`)}
+function acct(tab="orders"){if(!S.me)return auth();const ad=S.me.role==="admin";
+M(`<h3>${esc(S.me.name)}</h3><div class="tabs"><button class="btn ${tab==="orders"?"":"ghost"}" data-a="acct" data-i="orders">${t("orders")}</button><button class="btn ${tab==="sell"?"":"ghost"}" data-a="acct" data-i="sell">${t("sell")}</button>${ad?`<button class="btn ${tab==="admin"?"":"ghost"}" data-a="acct" data-i="admin">${t("admin")}</button>`:""}<button class="btn ghost" data-a="logout">${t("logout")}</button></div>`+(tab==="orders"?ordList(S.orders.filter(o=>o.phone===S.me.phone),0):tab==="sell"?sellT():adminT()))}
+function ordList(l,adm){return l.length?l.slice().reverse().map(o=>`<div class="ord"><b>#${o.id}</b> · ${o.date} · ${tk(o.total)}<br><span class="sm">${o.items.map(i=>esc(i.n)+"×"+i.q).join(", ")}<br>${esc(o.name)}, ${esc(o.addr)}, ${o.div} · ${o.pay}</span>${stp(o.st)}${adm&&o.st<3?`<button class="btn" data-a="nx" data-i="${o.id}">${t("next")}</button>`:""}</div>`).join(""):`<div class="sm">${t("noOrd")}</div>`}
+function sellT(){const sh=S.me.shop||"",mine=S.prods.filter(p=>p.seller===sh&&sh);let sl=0;S.orders.forEach(o=>o.items.forEach(i=>{if(sh&&i.s===sh)sl+=i.p*i.q}));
+return`<div class="f">${fld("shn",t("shopN"),"text",sh)}${sh?`<div class="stat"><div><span class="sm">${t("sales")}</span><b>${tk(sl)}</b></div><div><span class="sm">${t("net")}</span><b>${tk(Math.round(sl*.92))}</b></div></div><span class="sm">${t("comm")}</span>`:""}
+${fld("pn",t("pn"))}${fld("pp",t("pp"),"number")}${fld("po",t("po"),"number")}${fld("pe",t("pe"),"text","🎁")}<label>${t("pc")}<select id="pcat">${CATS.slice(1).map(c=>`<option value="${c[0]}">${cn(c)}</option>`).join("")}</select></label><label>${t("pd")}<textarea id="pdd" rows="2"></textarea></label><button class="btn" data-a="addp">${t("save")}</button></div>
+<h3 style="font-size:17px">${t("my")}</h3>${mine.map(p=>`<div class="rv">${esc(p.icon)} ${esc(nm(p))} · ${tk(p.price)} <button class="btn ghost" data-a="delp" data-i="${p.id}">${t("del")}</button></div>`).join("")}`}
+function adminT(){const rv=S.orders.reduce((a,o)=>a+o.total,0);return`<div class="stat"><div><span class="sm">${t("rev")}</span><b>${tk(rv)}</b></div><div><span class="sm">${t("oc")}</span><b>${S.orders.length}</b></div><div><span class="sm">${t("uc")}</span><b>${S.users.length-1}</b></div><div><span class="sm">${t("pc2")}</span><b>${all().length}</b></div></div>${ordList(S.orders,1)}<h3 style="font-size:17px">${t("pc2")}</h3>${S.prods.map(p=>`<div class="rv">${esc(p.icon)} ${esc(nm(p))} · ${esc(p.seller)} <button class="btn ghost" data-a="delp" data-i="${p.id}">${t("del")}</button></div>`).join("")}`}
+function chk(){if(!Object.keys(S.cart).length)return toast(t("emptyC"));if(!S.me){toast(t("needLogin"));return auth()}
+$("cart").classList.remove("open");const c=calc();
+M(`<h3>${t("checkout")}</h3><div class="f">${fld("cn",t("name"),"text",S.me.name)}${fld("cp",t("phone"),"tel",S.me.phone==="admin"?"":S.me.phone)}<label>${t("addr")}<textarea id="ca" rows="2"></textarea></label><label>${t("div")}<select id="cd">${DIV.map(d=>`<option>${d}</option>`).join("")}</select></label>
+<div class="pay">${[["COD",t("cod")],["bKash","bKash"],["Nagad","Nagad"],["Card",t("card")]].map((p,i)=>`<label><input type="radio" name="pm" value="${p[0]}" ${i?"":"checked"}>${p[1]}</label>`).join("")}</div><div id="tx" class="sm" hidden>${t("trx")}<input id="tid" style="width:100%"></div>
+<div class="tl"><span>${t("sub")}</span><span>${tk(c.sub)}</span></div><div class="tl"><span>${t("disc")}</span><span>−${tk(c.disc)}</span></div><div class="tl"><span>${t("ship")}</span><span id="sh">${tk(c.ship?c.ship:60)}</span></div><div class="tl b"><span>${t("total")}</span><span id="ct">${tk(calc("Dhaka").total)}</span></div><button class="btn hot" data-a="place">${t("place")}</button></div>`)}
+function place(){const n=$("cn").value.trim(),ph=$("cp").value.trim(),ad=$("ca").value.trim(),dv=$("cd").value,pm=document.querySelector("[name=pm]:checked").value;
+if(!n||!ph||!ad)return toast(t("fill"));if(pm!=="COD"&&!$("tid").value.trim())return toast(t("fill"));
+const c=calc(dv),id="EB"+(1001+S.orders.length);
+const items=Object.keys(S.cart).filter(k=>find(k.split("|")[0])).map(k=>{const p=find(k.split("|")[0]);return{n:nm(p)+(k.split("|")[1]?" ("+k.split("|")[1]+")":""),q:S.cart[k],p:p.price,s:p.seller}});
+S.orders.push({id,phone:S.me.phone,name:n,addr:ad,div:dv,pay:pm,items,total:c.total,st:0,date:new Date().toLocaleDateString("en-GB")});
+S.cart={};S.coupon="";save();cartR();M(`<h3>✅ ${t("ok")}</h3><p><b>#${id}</b> · ${tk(c.total)}</p>${stp(0)}<p class="sm">${t("sms")} ${esc(ph)}</p>`);toast(t("sms")+" "+ph)}
+const A={
+cat:i=>{F.cat=i;cats();grid()},shop:()=>$("shop").scrollIntoView({behavior:"smooth"}),lang:()=>{S.lang=bn()?"en":"bn";save();lang()},
+add:(i,b)=>{const o=$("op"),k=i+(o&&b.dataset.d?"|"+o.value:"");S.cart[k]=(S.cart[k]||0)+1;cartR();toast(t("added"))},
+buy:i=>{const o=$("op"),k=i+(o?"|"+o.value:"");S.cart[k]=(S.cart[k]||0)+1;cartR();A.mx(0,0,{target:{}});chk()},
+q:(k,b)=>{S.cart[k]=Math.max(0,(S.cart[k]||0)+Number(b.dataset.d));if(!S.cart[k])delete S.cart[k];cartR()},
+cart:()=>$("cart").classList.add("open"),cartx:()=>$("cart").classList.remove("open"),
+coupon:()=>{const v=$("cpn").value.trim().toUpperCase();S.coupon=["EBUY10","WELCOME50"].includes(v)?v:"";cartR();toast(S.coupon?"✓ "+v:"✗")},
+chk,place,det,acct:i=>acct(i),auth:i=>auth(i),
+w:i=>{S.wish=S.wish.includes(i)?S.wish.filter(x=>x!==i):[...S.wish,i];save();$("wc").textContent=S.wish.length;grid()},
+wish:()=>{const l=S.wish.map(find).filter(Boolean);M(`<h3>${t("wl")}</h3>${l.length?l.map(p=>`<div class="rv">${esc(p.icon)} ${esc(nm(p))} · ${tk(p.price)} <button class="btn" data-a="add" data-i="${p.id}">${t("add")}</button></div>`).join(""):`<div class="sm">${t("noW")}</div>`}`)},
+dologin:()=>{const u=S.users.find(x=>x.phone===$("ph").value.trim()&&x.pass===$("pw").value);if(!u)return toast(t("bad"));S.me=u;save();lang();acct()},
+doreg:()=>{const n=$("an2").value.trim(),p=$("ph").value.trim(),w=$("pw").value;if(!n||!p||w.length<4)return toast(t("fill"));if(S.users.some(x=>x.phone===p))return toast(t("exists"));const u={name:n,phone:p,pass:w,role:"user"};S.users.push(u);S.me=u;save();lang();acct()},
+logout:()=>{S.me=null;save();lang();A.mx(0,0,{target:{}})},
+rpost:i=>{if(!S.me){toast(t("needLogin"));return auth()}const c=$("rc").value.trim();if(!c)return toast(t("fill"));(S.rev[i]=S.rev[i]||[]).push({u:S.me.name,r:Number($("rr").value),c});save();grid();det(i)},
+nx:i=>{const o=S.orders.find(x=>x.id===i);if(o&&o.st<3){o.st++;save();toast(t("sms")+" "+o.phone)}acct("admin")},
+addp:()=>{const sh=$("shn").value.trim(),n=$("pn").value.trim(),pr=Number($("pp").value),od=Number($("po").value)||pr;if(!sh||!n||!pr)return toast(t("fill"));S.me.shop=sh;const u=S.users.find(x=>x.phone===S.me.phone);if(u)u.shop=sh;
+const bg=["#DCE6FF","#FFE3D6","#D8F5E3","#FFF0C9","#FFD9E8"][S.prods.length%5];S.prods.push({id:"s"+Date.now(),name:n,cat:$("pcat").value,icon:$("pe").value||"🎁",price:pr,old:od,rate:4,bg,seller:sh,desc:$("pdd").value.trim()});save();grid();toast("✓");acct("sell")},
+delp:i=>{S.prods=S.prods.filter(p=>p.id!==i);save();grid();acct(S.me.role==="admin"?"admin":"sell")},
+pol:i=>M(`<h3>${t(i)}</h3><p>${PO[i][bn()?1:0]}</p>`),
+mx:(i,b,e)=>{if(e.target===b||e.target.classList&&e.target.classList.contains("x")||!e.target.closest)$("mod").innerHTML=""}};
+document.addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;const f=A[b.dataset.a];if(!f)return;if(b.dataset.a==="mx"&&e.target!==b&&!e.target.classList.contains("x"))return;f(b.dataset.i,b,e)});
+document.addEventListener("change",e=>{const x=e.target;if(x.id==="so"){F.sort=x.value;grid()}if(x.id==="mx"){F.max=Number(x.value);grid()}if(x.id==="mr"){F.minr=Number(x.value);grid()}
+if(x.id==="cd"){const c=calc(x.value);$("sh").textContent=tk(c.ship);$("ct").textContent=tk(c.total)}if(x.name==="pm")$("tx").hidden=x.value==="COD"});
+$("q").oninput=e=>{F.q=e.target.value.trim().toLowerCase();grid()};
+function tick(){const d=new Date(),e=new Date(d);e.setHours(23,59,59,0);const s=Math.max(0,Math.floor((e-d)/1000)),f=n=>String(n).padStart(2,"0");
+$("h").firstChild.nodeValue=f(Math.floor(s/3600));$("m").firstChild.nodeValue=f(Math.floor(s%3600/60));$("s").firstChild.nodeValue=f(s%60)}
+lang();tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
